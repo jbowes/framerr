@@ -18,10 +18,10 @@ type Frame struct {
 	Text string
 
 	Source *struct {
-		Package  string
-		Function string
-		File     string
-		Line     int
+		Package string
+		Func    string
+		File    string
+		Line    int
 	}
 }
 
@@ -88,10 +88,10 @@ var detailsRegexp = regexp.MustCompile(`(?m)^(.*)\.(.*)\n  (.*):([0-9])+$`)
 
 func (p *printRecorder) Parse() Frame {
 	var source *struct {
-		Package  string
-		Function string
-		File     string
-		Line     int
+		Package string
+		Func    string
+		File    string
+		Line    int
 	}
 
 	matches := detailsRegexp.FindStringSubmatch(p.detail.String())
@@ -99,15 +99,15 @@ func (p *printRecorder) Parse() Frame {
 		line, err := strconv.Atoi(matches[4])
 		if err == nil {
 			source = &struct {
-				Package  string
-				Function string
-				File     string
-				Line     int
+				Package string
+				Func    string
+				File    string
+				Line    int
 			}{
-				Package:  matches[1],
-				Function: matches[2],
-				File:     matches[3],
-				Line:     line,
+				Package: matches[1],
+				Func:    matches[2],
+				File:    matches[3],
+				Line:    line,
 			}
 		}
 

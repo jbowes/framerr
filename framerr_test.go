@@ -52,7 +52,7 @@ func TestExtract(t *testing.T) {
 						t.Fatalf("expected stack frames")
 					}
 
-					if o.Source.Function != "TestExtract" || o.Source.Package != "github.com/jbowes/framerr_test" {
+					if o.Source.Func != "TestExtract" || o.Source.Package != "github.com/jbowes/framerr_test" {
 						t.Fatal("bad stack frame detail. saw:", o.Source)
 					}
 				}
