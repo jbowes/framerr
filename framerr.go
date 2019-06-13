@@ -84,7 +84,7 @@ func (p *printRecorder) Detail() bool {
 	return p.inDetail
 }
 
-var detailsRegexp = regexp.MustCompile(`(?m)^(.*)\.(.*)\n  (.*):([0-9]+)$`)
+var detailsRegexp = regexp.MustCompile(`(?m)^(.*)\.(.*)\n\s*(.*):([0-9]+)$`)
 
 func (p *printRecorder) Parse() Frame {
 	var source *struct {
